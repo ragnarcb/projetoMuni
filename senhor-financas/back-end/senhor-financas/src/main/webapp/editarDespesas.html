@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senhor Finanças</title>
+    <link rel="stylesheet" href="./css/cadastroDespesas.css">
+</head>
+
+<body>
+<header class="lateral">
+    <div class="imagem">
+        <img class="logo" src="./imagens/logo.jpg" alt="Logo da página inicial" width="75%" height="75%">
+    </div>
+    <div class="texto">
+        <h3>Gerenciador Financeiro</h3>
+    </div>
+    <hr>
+    <section class="links">
+        <ul>
+            <li class="btn"><a href="./receitas.html">Receitas</a></li>
+            <li class="btn"><a href="./despesas.html">Despesas</a></li>
+            <li class="btn"><a href="./relatorios.html">Relatórios</a></li>
+        </ul>
+    </section>
+</header>
+<section class="principal">
+    <div class="titulo">
+        <h2>Edição de Despesas</h2>
+    </div>
+</section>
+<form onsubmit="event.preventDefault(); editarDespesa();">
+    <section class="cadastro-receitas">
+        <div class="div-input-receitas">
+            <label for="descricao">Descricao:</label>
+            <input class="input-receitas" type="text" name="descricao" id="descricao" required>
+        </div>
+        <div class="div-input-receitas">
+            <label for="valor">Valor:</label>
+            <input class="input-receitas" type="number" name="valor" id="valor" required>
+        </div>
+        <div class="div-input-receitas">
+            <label for="dtvencimento">Data da Vencimento:</label>
+            <input class="input-receitas" type="date" name="dtvencimento" id="dtvencimento" required>
+        </div>
+        <div class="div-input-receitas">
+            <label for="dtpagamento">Data da Pagamento:</label>
+            <input class="input-receitas" type="date" name="dtpagamento" id="dtpagamento" required>
+        </div>
+    </section>
+    <section class="botao-cadastrar-receitas">
+        <div class="receitas-cadastrar">
+            <div class="input-cadastrar-receitas">
+            </div>
+            <div class="cadastro-receitas">
+                <button class="cadastrar-botao" type="button" onclick="atualizarDespesa()">Cadastrar</button>
+            </div>
+        </div>
+    </section>
+</form>
+
+<section class="desenvolvido">
+    <h3>Desenvolvido por PedroFolster</h3>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const descricao = urlParams.get('descricao');
+        const dataVencimento = urlParams.get('dataVencimento');
+        const dataPagamento = urlParams.get('dataPagamento');
+        const valor = urlParams.get('valor');
+
+        const descricaoInput = document.getElementById('descricao');
+        const dtvencimentoInput = document.getElementById('dtvencimento');
+        const dtpagamentoInput = document.getElementById('dtpagamento');
+        const valorInput = document.getElementById('valor');
+
+        if (descricaoInput && dtvencimentoInput && dtpagamentoInput && valorInput) {
+            descricaoInput.value = descricao || '';
+            valorInput.value = valor || '';
+
+            // Verifica se há uma data de vencimento antes de tentar preencher o campo
+            if (dataVencimento) {
+                const formattedDataVencimento = formatarData(dataVencimento);
+                dtvencimentoInput.value = formattedDataVencimento || '';
+            }
+
+            // Verifica se há uma data de pagamento antes de tentar preencher o campo
+            if (dataPagamento) {
+                const formattedDataPagamento = formatarData(dataPagamento);
+                dtpagamentoInput.value = formattedDataPagamento || '';
+            }
+        }
+    });
+
+    function formatarData(data) {
+        if (!data) {
+            return ''; // Retorna uma string vazia se a data for nula ou indefinida
+        }
+
+        const date = new Date(data);
+        if (isNaN(date.getTime())) {
+            return ''; // Retorna uma string vazia se a data não for válida
+        }
+
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    function formatarDataParaJSON(data) {
+        const date = new Date(data);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
+
+    async function atualizarDespesa() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const idDespesa = urlParams.get('id');
+
+        // Verifica se o ID é maior que 0
+        if (!idDespesa || parseInt(idDespesa) <= 0) {
+            console.error('ID de despesa inválido');
+            return;
+        }
+
+        const descricao = document.getElementById('descricao').value;
+        const dataVencimentoInput = document.getElementById('dtvencimento');
+        const dataPagamentoInput = document.getElementById('dtpagamento');
+        const valor = document.getElementById('valor').value;
+
+        const idUsuario = 1; // O ID do usuário associado à despesa
+
+        const url = `http://localhost:8080/senhor_financas_war_exploded/rest/despesa/atualizar`;
+
+        try {
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    idDespesa,
+                    descricao,
+                    dataVencimento: formatarDataParaJSON(dataVencimentoInput.value),
+                    dataPagamento: formatarDataParaJSON(dataPagamentoInput.value),
+                    valor,
+                    idUsuario,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erro na resposta do servidor: ${response.status} ${response.statusText}`);
+            }
+
+            console.log('Despesa atualizada com sucesso');
+            // Adicione aqui qualquer lógica adicional após a atualização bem-sucedida
+        } catch (error) {
+            console.error('Erro ao atualizar a despesa', error);
+        }
+    }
+</script>
+</body>
+
+</html>
+

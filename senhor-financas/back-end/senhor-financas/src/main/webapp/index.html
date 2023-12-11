@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/realizarLogin.js" defer></script>
+    <title>Senhor Finanças</title>
+</head>
+<body>
+<section class="titulo">
+    <h1>Sistema de Controle de Finanças</h1>
+    <h4>Gerir bem as finanças garantem um dia a dia mais tranquilo!</h4>
+</section>
+<section class="login">
+    <form action="">
+        <div>
+            <label for="login">Login:</label>
+            <input class="input" type="text" name="login" id="login" required minlength="3">
+        </div>
+        <div>
+            <label for="senha">Senha:</label>
+            <input class="input" type="password" name="senha" id="senha" required minlength="3">
+        </div>
+        <div class="botao-entrar">
+            <button class="botao" type="button" onclick="logarUsuario()">Entrar</button>
+        </div>
+        <div>
+            <a href="./usuario.html" class="btn-criar-conta" target="_blank">
+                <p>Criar Conta</p>
+            </a>
+        </div>
+    </form>
+</section>
+<section class="desenvolvedor">
+    <h4>Desenvolvido por PedroFolster</h4>
+</section>
+<script src="./js/realizarLogin.js" defer></script>
+</body>

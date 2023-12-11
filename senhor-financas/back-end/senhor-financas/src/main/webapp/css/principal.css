@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam&family=Lato:wght@700&display=swap");
+
+:root {
+    --fonte-titulo: "Lato", sans-serif;
+    --fonte-texto: "Kalam", cursive;
+    --cor-principal: #112D4E;
+    --cor-secundaria: #3F72AF;
+    --cor-tercearia: #DBE2EF;
+    --cor-fonte: #F9F7F7;
+    --cor-preto: #000000;
+    --cor-fundo: linear-gradient(to bottom, var(--cor-secundaria) 0%, var(--cor-principal) 100%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--cor-fundo);
+    color: var(--cor-fonte);
+}
+
+/* Parte lateral da página */
+
+.lateral {
+    width: 15%;
+    height: 100vh;
+    color: var(--cor-fonte);
+    text-align: center;
+    position: fixed;
+    background-color: var(--cor-principal);
+    border-color: #000000;
+    border: 2px solid var(--cor-preto);
+    font-family: var(--fonte-titulo);
+}
+
+.logo {
+    margin: 15px 0px;
+    padding: 40px 0px;
+    border-radius: 50%;
+}
+
+.lateral h3 {
+    font-size: 1.2rem;
+    color: var(--cor-fonte);
+}
+
+hr {
+    margin: 20px;
+    border-top: 1.6px solid var(--cor-fonte);
+}
+
+.links {
+    display: block;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 1.2rem;
+
+}
+
+.links li {
+    padding: 15px 0px;
+}
+
+.links a {
+    color: var(--cor-fonte-branco);
+    text-decoration: none;
+    color: var(--cor-fonte);
+}
+
+.btn {
+    transition: ease-in-out .3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: var(--cor-fonte-branco);
+    background-color: var(--cor-secundaria);
+}
+
+/* Parte principal da página */
+
+.titulo h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: var(--fonte-titulo);
+    font-weight: normal;
+    padding: 40px;
+    padding-left: 15%;
+} 
+
+/* Tabela */
+
+.tabela {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px 1%;
+    font-size: 1rem;
+}
+
+
+table {
+    width: 122%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 2px;
+    text-align: center;
+    font-family: var(--fonte-texto);
+    font-weight: normal;
+}
+
+td {
+    color: #000000;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #B0C4DE;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+th {
+    background-color: var(--cor-principal);
+    border-bottom: 2px solid var(--cor-preto);
+}
+
+
+/* Botões */
+
+form {
+    display: flex;
+    justify-content: center;
+    padding-left: 15%;
+}
+
+.botao-editar:hover {
+    background-color: var(--cor-secundaria);
+}
+
+.botao-excluir:hover {
+    background-color: var(--cor-secundaria);
+}
+
+.div-botao {
+    padding-top: 10px;
+    text-align: center;
+    margin: 0 5px; /* Removendo completamente a margem entre os botões */
+}
+
+.botao {
+    width: 80px; /* Ajuste a largura conforme necessário */
+    height: 30px; /* Ajuste a altura conforme necessário */
+    margin: 0 5px; /* Adicionando margem lateral entre os botões */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border: 2px solid var(--cor-preto);
+    font-family: var(--fonte-titulo);
+    font-weight: normal;
+}
+
+.botao-acoes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.botao-editar,
+.botao-excluir {
+    width: 80px; /* Ajuste a largura conforme necessário */
+    height: 30px; /* Ajuste a altura conforme necessário */
+    margin: 0 5px; /* Adicionando margem lateral entre os botões */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border: 2px solid var(--cor-preto);
+    font-family: var(--fonte-titulo);
+    font-weight: bold;
+}
+
+.botao:hover {
+    background-color: var(--cor-secundaria);
+}

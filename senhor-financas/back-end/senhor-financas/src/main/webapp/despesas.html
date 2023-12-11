@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senhor Finanças</title>
+    <link rel="stylesheet" href="./css/receitas.css">
+</head>
+
+<body>
+<header class="lateral">
+    <div class="imagem">
+        <img class="logo" src="./imagens/logo.jpg" alt="Logo da página inicial" width="75%" height="75%">
+    </div>
+    <div class="texto">
+        <h3>Gerenciador Financeiro</h3>
+    </div>
+    <hr>
+    <section class="links">
+        <ul>
+            <li class="btn"><a href="./receitas.html">Receitas</a></li>
+            <li class="btn"><a href="./despesas.html">Despesas</a></li>
+            <li class="btn"><a href="./relatorios.html">Relatórios</a></li>
+        </ul>
+    </section>
+</header>
+
+<section class="principal">
+    <div class="titulo">
+        <h2>Despesas</h2>
+    </div>
+</section>
+
+<section class="tabela">
+    <form id="formDespesas">
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descrição</th>
+                <th>Data Vencimento</th>
+                <th>Data Pagamento</th>
+                <th>Valor</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody id="tbodyDespesas"></tbody>
+            <tfoot>
+            <tr>
+                <th class="total-cell" colspan="6">Total - R$ <span id="totalDespesas">0.00</span></th>
+            </tr>
+            </tfoot>
+        </table>
+    </form>
+</section>
+
+<section class="section-botao">
+    <form action="">
+        <div class="div-botao">
+            <button id="buscarBotao" class="botao" type="submit">Buscar</button>
+        </div>
+        <div class="div-botao">
+            <button class="botao" type="submit">Limpar</button>
+        </div>
+        <div class="div-botao">
+            <button type="submit" class="botao" formaction="./cadastrarDespesas.html">Cadastrar</button>
+        </div>
+    </form>
+</section>
+
+<script src="./js/cadastrarDespesa.js" defer></script>
+</body>
+
+</html>

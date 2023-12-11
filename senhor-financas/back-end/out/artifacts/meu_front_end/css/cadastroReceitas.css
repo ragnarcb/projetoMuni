@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam&family=Lato:wght@700&display=swap");
+
+:root {
+    --fonte-titulo: "Lato", sans-serif;
+    --fonte-texto: "Kalam", cursive;
+    --cor-principal: #112D4E;
+    --cor-secundaria: #3F72AF;
+    --cor-tercearia: #DBE2EF;
+    --cor-fonte: #F9F7F7;
+    --cor-preto: #000000;
+    --cor-fundo: linear-gradient(to bottom, var(--cor-secundaria) 0%, var(--cor-principal) 100%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--cor-fundo);
+    color: var(--cor-fonte);
+}
+
+/* Parte lateral da página */
+
+.lateral {
+    width: 15%;
+    height: 100vh;
+    color: var(--cor-fonte);
+    text-align: center;
+    position: fixed;
+    background-color: var(--cor-principal);
+    border-color: #000000;
+    border: 2px solid var(--cor-preto);
+    font-family: var(--fonte-titulo);
+}
+
+.logo {
+    margin: 15px 0px;
+    padding: 40px 0px;
+    border-radius: 50%;
+}
+
+.lateral h3 {
+    font-size: 1.2rem;
+    color: var(--cor-fonte);
+}
+
+hr {
+    margin: 20px;
+    border-top: 1.6px solid var(--cor-fonte);
+}
+
+.links {
+    display: block;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 1.2rem;
+
+}
+
+.links li {
+    padding: 15px 0px;
+}
+
+.links a {
+    color: var(--cor-fonte-branco);
+    text-decoration: none;
+    color: var(--cor-fonte);
+}
+
+.btn {
+    transition: ease-in-out .3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: var(--cor-fonte-branco);
+    background-color: var(--cor-secundaria);
+}
+
+/* Parte principal da página */
+
+.titulo h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: var(--fonte-titulo);
+    font-weight: normal;
+    padding: 40px;
+    padding-left: 15%;
+} 
+
+/* Botões*/
+
+.cadastro-receitas {
+    text-align: left;
+    padding-top: 30px;
+    padding-left: 42.5%;
+}
+
+
+.div-input-receitas {
+    display: flex;
+    flex-direction: column; /* Coloca os itens em coluna */
+    margin-bottom: 20px; /* Adiciona espaçamento inferior entre os campos */
+    font-family: "Kalam";
+    color: var(--fonte-texto);
+    font-weight: normal;
+}
+
+.label-receitas {
+    margin-bottom: 5px; /* Adiciona espaçamento inferior entre o label e o input */
+}
+
+.input-receitas {
+    width: 30rem;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 2px solid var(--cor-preto);
+}
+
+
+.cadastrar-botao {
+    align-items: center;
+    width: 30rem;
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: #ffffff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    font-family: var(--fonte-texto);
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid var(--cor-preto);
+}
+
+
+.cadastro-receitas .cadastrar-botao:hover {
+    background-color: var(--cor-secundaria);
+}
+
+/* Desenvolvido */
+
+.desenvolvido {
+    text-align: center;
+    padding-top: 275px;
+    font-family: var(--fonte-texto);
+}
+
+.desenvolvido h3 {
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+    padding-left: 12.9%;
+}
+

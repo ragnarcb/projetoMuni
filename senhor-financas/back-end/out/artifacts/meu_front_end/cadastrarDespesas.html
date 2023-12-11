@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senhor Finanças</title>
+    <link rel="stylesheet" href="./css/cadastroDespesas.css">
+</head>
+
+<body>
+    <header class="lateral">
+        <div class="imagem">
+            <img class="logo" src="./imagens/logo.jpg" alt="Logo da página inicial" width="75%" height="75%">
+        </div>
+        <div class="texto">
+            <h3>Gerenciador Financeiro</h3>
+        </div>
+        <hr>
+        <section class="links">
+            <ul>
+                <li class="btn"><a href="./receitas.html">Receitas</a></li>
+                <li class="btn"><a href="./despesas.html">Despesas</a></li>
+                <li class="btn"><a href="./relatorios.html">Relatórios</a></li>
+            </ul>
+        </section>
+    </header>
+    <section class="principal">
+        <div class="titulo">
+            <h2>Cadastro de Despesas</h2>
+        </div>
+    </section>
+    <form action="">
+        <section class="cadastro-receitas">
+            <div class="div-input-receitas">
+                <label for="descricao">Descricao:</label>
+                <input class="input-receitas" type="text" name="descricao" id="descricao" required>
+            </div>
+            <div class="div-input-receitas">
+                <label for="descricao">Valor:</label>
+                <input class="input-receitas" type="number" name="valor" id="valor" required>
+            </div>
+            <div class="div-input-receitas">
+                <label for="descricao">Data da Vencimento:</label>
+                <input class="input-receitas" type="date" name="dtvencimento" id="dtvencimento" required>
+            </div>
+            <div class="div-input-receitas">
+                <label for="descricao">Data da Pagamento:</label>
+                <input class="input-receitas" type="date" name="dtpagamento" id="dtpagamento" required>
+            </div>
+        </section>
+        <section class="botao-cadastrar-receitas">
+            <div class="receitas-cadastrar">
+                <div class="input-cadastrar-receitas">
+                </div>
+                <div class="cadastro-receitas">
+                    <button class="cadastrar-botao" type="submit">Cadastrar</button>
+                </div>
+            </div>
+        </section>
+    </form>
+
+    <section class="desenvolvido">
+        <h3>Desenvolvido por PedroFolster</h3>
+    </section>
+</body>

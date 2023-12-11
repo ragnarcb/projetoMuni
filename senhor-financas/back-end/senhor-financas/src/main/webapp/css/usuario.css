@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam&family=Lato:wght@700&display=swap");
+
+:root {
+    --fonte-titulo: "Lato", sans-serif;
+    --fonte-texto: "Kalam", cursive;
+    --cor-principal: #112D4E;
+    --cor-secundaria: #3F72AF;
+    --cor-tercearia: #DBE2EF;
+    --cor-fonte: #F9F7F7;
+    --cor-preto: #000000;
+    --cor-fundo: linear-gradient(to bottom, var(--cor-secundaria) 0%, var(--cor-principal) 100%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--cor-fundo);
+    color: var(--cor-fonte);
+    font-family: var(--fonte-texto);
+}
+
+/* Seção 'CRIAR-CONTA' */
+
+.titulo-cadastro {
+    text-align: center;
+    padding: 20px;
+}
+
+.titulo-cadastro h1 {
+    font-size: 24px;
+    margin-top: 50px; /* Espaço entre o topo e o h1 */
+}
+
+.titulo-cadastro h1 {
+    font-family: "Lato";
+    color: var(--fonte-titulo);
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 6vh;
+}
+
+.titulo-cadastro h4 {
+    font-family: "Kalam";
+    color: var(--fonte-texto);
+    text-align: center;
+    font-size: 1rem;
+    padding: 5px;
+    font-weight: normal;
+}
+
+/* Estilo para a seção 'cadastro-usuario' */
+
+.cadastro-usuario {
+    text-align: center;
+    padding-top: 30px;
+    display: flex;
+    padding-left: 4rem;
+    justify-content: center;
+}
+
+.input-registrar {
+    margin: 10px 10px; /* Adiciona espaçamento vertical e horizontal entre os campos */
+    text-align: left;
+}
+
+
+.input-cadastro {
+    width: 20rem;
+    padding: 8px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border: 2px solid var(--cor-preto);
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    padding-right: 270px;
+}
+
+.botao-cadastrar-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.cadastrar-btn {
+    text-align: center;
+}
+
+
+.cadastrar-botao {
+    align-items: center;
+    width: 20rem;
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: #ffffff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px; /* Margem entre os botões */
+    font-size: 16px;
+    text-align: center;
+    font-family: var(--fonte-texto);
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid var(--cor-preto);
+
+}
+    
+.cadastrar-botao:hover {
+    background-color: var(--cor-secundaria);
+}
+
+.desenvolvido {
+    text-align: center;
+    padding-top: 200px;
+}
+
+.desenvolvido h3 {
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+}
