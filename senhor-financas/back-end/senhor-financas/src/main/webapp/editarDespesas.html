@@ -42,12 +42,12 @@
             <input class="input-receitas" type="number" name="valor" id="valor" required>
         </div>
         <div class="div-input-receitas">
-            <label for="dtvencimento">Data da Vencimento:</label>
-            <input class="input-receitas" type="date" name="dtvencimento" id="dtvencimento" required>
+            <label for="dataVencimento">Data da Vencimento:</label>
+            <input class="input-receitas" type="date" name="dataVencimento" id="dataVencimento" required>
         </div>
         <div class="div-input-receitas">
-            <label for="dtpagamento">Data da Pagamento:</label>
-            <input class="input-receitas" type="date" name="dtpagamento" id="dtpagamento" required>
+            <label for="dataPagamento">Data da Pagamento:</label>
+            <input class="input-receitas" type="date" name="dataPagamento" id="dataPagamento" required>
         </div>
     </section>
     <section class="botao-cadastrar-receitas">
@@ -74,24 +74,24 @@
         const valor = urlParams.get('valor');
 
         const descricaoInput = document.getElementById('descricao');
-        const dtvencimentoInput = document.getElementById('dtvencimento');
-        const dtpagamentoInput = document.getElementById('dtpagamento');
+        const dataVencimentoInput = document.getElementById('dataVencimento');
+        const dataPagamentoInput = document.getElementById('dataPagamento');
         const valorInput = document.getElementById('valor');
 
-        if (descricaoInput && dtvencimentoInput && dtpagamentoInput && valorInput) {
+        if (descricaoInput && dataVencimentoInput && dataPagamentoInput && valorInput) {
             descricaoInput.value = descricao || '';
             valorInput.value = valor || '';
 
             // Verifica se há uma data de vencimento antes de tentar preencher o campo
             if (dataVencimento) {
                 const formattedDataVencimento = formatarData(dataVencimento);
-                dtvencimentoInput.value = formattedDataVencimento || '';
+                dataVencimentoInput.value = formattedDataVencimento || '';
             }
 
             // Verifica se há uma data de pagamento antes de tentar preencher o campo
             if (dataPagamento) {
                 const formattedDataPagamento = formatarData(dataPagamento);
-                dtpagamentoInput.value = formattedDataPagamento || '';
+                dataPagamentoInput.value = formattedDataPagamento || '';
             }
         }
     });
@@ -133,8 +133,8 @@
         }
 
         const descricao = document.getElementById('descricao').value;
-        const dataVencimentoInput = document.getElementById('dtvencimento');
-        const dataPagamentoInput = document.getElementById('dtpagamento');
+        const dataVencimentoInput = document.getElementById('dataVencimento');
+        const dataPagamentoInput = document.getElementById('dataPagamento');
         const valor = document.getElementById('valor').value;
 
         const idUsuario = 1; // O ID do usuário associado à despesa

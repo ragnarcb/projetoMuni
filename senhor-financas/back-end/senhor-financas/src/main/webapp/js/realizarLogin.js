@@ -7,6 +7,7 @@ async function logarUsuario() {
         body: JSON.stringify({
             login: document.querySelector('#login').value,
             senha: document.querySelector('#senha').value
+
         })
     };
 

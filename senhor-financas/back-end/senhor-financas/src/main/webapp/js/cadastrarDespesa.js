@@ -105,15 +105,15 @@ async function atualizarTabelaDespesas() {
 
                 let td_id = tr.insertCell();
                 let td_descricao = tr.insertCell();
-                let td_dtVencimento = tr.insertCell();
-                let td_dtPagamento = tr.insertCell();
+                let td_dataVencimento = tr.insertCell();
+                let td_dataPagamento = tr.insertCell();
                 let td_valor = tr.insertCell();
                 let td_acoes = tr.insertCell();
 
                 td_id.innerText = despesa.idDespesa;
                 td_descricao.innerText = despesa.descricao;
-                td_dtVencimento.innerText = formatarData(despesa.dataVencimento);
-                td_dtPagamento.innerText = despesa.dataPagamento ? formatarData(despesa.dataPagamento) : '-';
+                td_dataVencimento.innerText = formatarDataParaJSON(despesa.dataVencimento);
+                td_dataPagamento.innerText = despesa.dataPagamento ? formatarDataParaJSON(despesa.dataPagamento) : '-';
                 td_valor.innerText = formatarValor(despesa.valor);
 
                 let botoesAcoes = document.createElement('div');
@@ -141,15 +141,7 @@ async function atualizarTabelaDespesas() {
     }
 }
 
-function formatarData(data) {
-    const date = new Date(data);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    return `${year}-${month}-${day}T${hours}:${minutes}`;
-}
+
 
 function formatarDataParaJSON(data) {
     const date = new Date(data);
@@ -203,19 +195,19 @@ async function excluirDespesa(despesa) {
 async function cadastrarNovaDespesa() {
     const descricaoInput = document.getElementById('descricao');
     const valorInput = document.getElementById('valor');
-    const dtvencimentoInput = document.getElementById('dtvencimento');
-    const dtpagamentoInput = document.getElementById('dtpagamento');
+    const dataVencimentoInput = document.getElementById('dataVencimento');
+    const dataPagamentoInput = document.getElementById('dataPagamento');
 
-    if (!descricaoInput || !valorInput || !dtvencimentoInput || !dtpagamentoInput) {
+    if (!descricaoInput || !valorInput || !dataVencimentoInput || !dataPagamentoInput) {
         console.error('Erro: Elemento de input não encontrado.');
         return;
     }
 
     // Verifique se os valores dos campos de data são nulos ou vazios
-    const dtvencimentoValue = dtvencimentoInput.value.trim();
-    const dtpagamentoValue = dtpagamentoInput.value.trim();
+    const dataVencimentoValue = dataVencimentoInput.value.trim();
+    const dataPagamentoValue = dataPagamentoInput.value.trim();
 
-    if (!dtvencimentoValue || !dtpagamentoValue) {
+    if (!dataVencimentoValue || !dataPagamentoValue) {
         console.error('Erro: Os campos de data não podem estar vazios.');
         return;
     }
@@ -231,8 +223,8 @@ async function cadastrarNovaDespesa() {
     const novaDespesa = {
         descricao: descricaoInput.value,
         valor: parseFloat(valorInput.value),
-        dtvencimento: formatarDataParaJSON(dtvencimentoValue),
-        dtpagamento: formatarDataParaJSON(dtpagamentoValue),
+        dataVencimento: formatarDataParaJSON(dataVencimentoValue),
+        dataPagamento: formatarDataParaJSON(dataPagamentoValue),
         idUsuario: idUsuarioLogado
     };
 

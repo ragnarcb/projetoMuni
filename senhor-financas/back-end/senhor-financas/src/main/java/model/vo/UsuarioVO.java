@@ -12,13 +12,13 @@ public class UsuarioVO {
     private String login;
     private String senha;
 
-    public UsuarioVO(int idUsuario, String nome, String cpf, String email, LocalDateTime datanascimento, String login, String senha) {
+    public UsuarioVO(int idUsuario, String nome, String cpf, String email, LocalDateTime dataNascimento, String login, String senha) {
         super();
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
-        this.datanascimento = datanascimento;
+        this.datanascimento = dataNascimento;
         this.login = login;
         this.senha = senha;
     }
@@ -62,9 +62,9 @@ public class UsuarioVO {
     public LocalDateTime getDatanascimento() {
         return datanascimento;
     }
-
     public void setDatanascimento(LocalDateTime datanascimento) {
         this.datanascimento = datanascimento;
+        System.out.println(datanascimento);
     }
 
     public String getLogin() {
